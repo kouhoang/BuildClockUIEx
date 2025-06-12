@@ -158,20 +158,6 @@ class _WorldClockScreenState extends State<WorldClockScreen>
                 },
               ),
             ),
-
-            // Footer info with background
-            Container(
-              margin: const EdgeInsets.all(16),
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.6),
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                  color: Colors.green.withOpacity(0.3),
-                  width: 1,
-                ),
-              ),
-            ),
           ],
         ),
       ),
