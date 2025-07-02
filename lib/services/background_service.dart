@@ -24,11 +24,15 @@ class BackgroundService {
       } else {
         _currentBackgroundPath = null;
       }
-      // Notify listeners
-      _backgroundController.add(_currentBackgroundPath);
+      // Notify listeners only if controller is not closed
+      if (!_backgroundController.isClosed) {
+        _backgroundController.add(_currentBackgroundPath);
+      }
     } catch (e) {
       _currentBackgroundPath = null;
-      _backgroundController.add(null);
+      if (!_backgroundController.isClosed) {
+        _backgroundController.add(null);
+      }
     }
   }
 
@@ -38,7 +42,9 @@ class BackgroundService {
       await prefs.setString(_backgroundKey, path);
       _currentBackgroundPath = path;
       // Notify all listeners về background mới
-      _backgroundController.add(_currentBackgroundPath);
+      if (!_backgroundController.isClosed) {
+        _backgroundController.add(_currentBackgroundPath);
+      }
     } catch (e) {
       throw Exception('Failed to save background');
     }
@@ -50,13 +56,17 @@ class BackgroundService {
       await prefs.remove(_backgroundKey);
       _currentBackgroundPath = null;
       // Notify all listeners background removed
-      _backgroundController.add(null);
+      if (!_backgroundController.isClosed) {
+        _backgroundController.add(null);
+      }
     } catch (e) {
       throw Exception('Failed to remove background');
     }
   }
 
   static void dispose() {
-    _backgroundController.close();
+    if (!_backgroundController.isClosed) {
+      _backgroundController.close();
+    }
   }
 }

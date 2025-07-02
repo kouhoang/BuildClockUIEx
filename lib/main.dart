@@ -1,5 +1,5 @@
+import 'package:build_clock/views/screens/tab_screen.dart';
 import 'package:flutter/material.dart';
-import 'screens/tab_screen.dart';
 
 void main() {
   runApp(MyApp());

@@ -198,7 +198,7 @@ class ClockPainter extends CustomPainter {
       // Add glow effect for active segments
       if (color == Color(0xFF00FF00)) {
         final glowPaint = Paint()
-          ..color = Color(0xFF00FF00).withOpacity(0.2)
+          ..color = Color(0xFF00FF00).withValues(alpha: 0.2)
           ..style = PaintingStyle.fill
           ..maskFilter = ui.MaskFilter.blur(BlurStyle.normal, 2);
 
@@ -345,7 +345,7 @@ class ClockPainter extends CustomPainter {
         ..style = PaintingStyle.fill;
 
       final glowPaint = Paint()
-        ..color = Color(0xFF00FF00).withOpacity(0.2)
+        ..color = Color(0xFF00FF00).withValues(alpha: 0.2)
         ..style = PaintingStyle.fill
         ..maskFilter = ui.MaskFilter.blur(BlurStyle.normal, 1.5);
 

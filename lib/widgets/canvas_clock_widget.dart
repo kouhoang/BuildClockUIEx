@@ -1,5 +1,5 @@
-import 'package:build_clock/widgets/clock_painter.dart';
 import 'package:flutter/material.dart';
+import 'clock_painter.dart';
 
 class CanvasClockWidget extends StatelessWidget {
   final String hours;

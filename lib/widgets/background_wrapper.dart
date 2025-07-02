@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
-import '../services/background_service.dart';
+import '../../services/background_service.dart';
 
 class BackgroundWrapper extends StatefulWidget {
   final Widget child;
@@ -48,7 +48,9 @@ class _BackgroundWrapperState extends State<BackgroundWrapper> {
           : const BoxDecoration(color: Colors.black),
       child: widget.showOverlay && _backgroundPath != null
           ? Container(
-              decoration: BoxDecoration(color: Colors.black.withOpacity(0.3)),
+              decoration: BoxDecoration(
+                color: Colors.black.withValues(alpha: 0.3),
+              ),
               child: widget.child,
             )
           : widget.child,
